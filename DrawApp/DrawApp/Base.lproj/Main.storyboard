@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DrawApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="874-OZ-vki" userLabel="ColorandUtility">
+                                <rect key="frame" x="184" y="369" width="368" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="NGZ-S1-NEc" userLabel="ColorView">
+                                        <rect key="frame" x="0.0" y="0.0" width="212" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VET-aX-aMG" userLabel="Red">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="BmZ-Ba-Z84"/>
+                                                    <constraint firstAttribute="width" constant="40" id="oPT-VB-tJ6"/>
+                                                </constraints>
+                                                <state key="normal" image="red.png"/>
+                                                <connections>
+                                                    <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ufW-Sv-S4Z"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rt-d3-mld" userLabel="Yellow">
+                                                <rect key="frame" x="43" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="30A-ua-Dw0"/>
+                                                    <constraint firstAttribute="height" constant="40" id="fe4-TC-nfn"/>
+                                                </constraints>
+                                                <state key="normal" image="yellow.png"/>
+                                                <connections>
+                                                    <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DTt-jQ-WBu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGb-R8-Eub" userLabel="Blue">
+                                                <rect key="frame" x="86" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="G5U-IO-4pM"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Qbm-bc-oVK"/>
+                                                </constraints>
+                                                <state key="normal" image="blue.png"/>
+                                                <connections>
+                                                    <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P8N-Sb-FFJ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dga-8I-Tg3" userLabel="Green">
+                                                <rect key="frame" x="129" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="EFp-Gh-V9C"/>
+                                                    <constraint firstAttribute="height" constant="40" id="c7a-dD-ieU"/>
+                                                </constraints>
+                                                <state key="normal" image="green.png"/>
+                                                <connections>
+                                                    <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6tp-q3-Gqy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlc-pv-7AX" userLabel="Purple">
+                                                <rect key="frame" x="172" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="BLs-Ah-si3"/>
+                                                    <constraint firstAttribute="height" constant="40" id="Ekx-Vy-PEm"/>
+                                                </constraints>
+                                                <state key="normal" image="purple.png"/>
+                                                <connections>
+                                                    <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o2d-1A-ISw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="iCB-jH-HHY" userLabel="UtilityView">
+                                        <rect key="frame" x="242" y="0.0" width="126" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqC-gl-ZlV" userLabel="Save">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="Le0-72-Pgb"/>
+                                                    <constraint firstAttribute="height" constant="40" id="rtA-09-dXu"/>
+                                                </constraints>
+                                                <state key="normal" image="save.png"/>
+                                                <connections>
+                                                    <action selector="savePicBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ngY-AM-O7e"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiY-eF-ea5" userLabel="Trash">
+                                                <rect key="frame" x="43" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="7ml-My-SxS"/>
+                                                    <constraint firstAttribute="height" constant="40" id="jqe-lR-Fsh"/>
+                                                </constraints>
+                                                <state key="normal" image="recycle.png"/>
+                                                <connections>
+                                                    <action selector="deleteBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yqC-fW-s5y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Juc-Ls-zfE" userLabel="Eraser">
+                                                <rect key="frame" x="86" y="0.0" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="KRs-YW-GPQ"/>
+                                                    <constraint firstAttribute="width" constant="40" id="cuO-EG-o0C"/>
+                                                </constraints>
+                                                <state key="normal" image="eraser.png"/>
+                                                <connections>
+                                                    <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vOV-46-Ska"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HgV-wd-0b7" userLabel="ShapeView">
+                                <rect key="frame" x="10" y="75" width="40" height="265"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLO-TF-tR3" userLabel="Line">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="0bm-eD-ysI"/>
+                                            <constraint firstAttribute="height" constant="45" id="R4k-3h-9Bt"/>
+                                        </constraints>
+                                        <state key="normal" image="line.png"/>
+                                        <connections>
+                                            <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KDD-q9-B4a"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XG1-rI-IaD" userLabel="Rect">
+                                        <rect key="frame" x="0.0" y="55" width="40" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="ULi-1P-9kw"/>
+                                            <constraint firstAttribute="width" constant="40" id="YTd-5V-EE4"/>
+                                        </constraints>
+                                        <state key="normal" image="rect.png"/>
+                                        <connections>
+                                            <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7pX-ze-oIQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTn-gE-MCv" userLabel="Eclipse">
+                                        <rect key="frame" x="0.0" y="110" width="40" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="2kC-e4-Rl0"/>
+                                            <constraint firstAttribute="width" constant="40" id="ksA-6H-aNQ"/>
+                                        </constraints>
+                                        <state key="normal" image="oval.png"/>
+                                        <connections>
+                                            <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xpt-x1-D99"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-1b-ra8" userLabel="Diamond">
+                                        <rect key="frame" x="0.0" y="165" width="40" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="DfE-bP-xHG"/>
+                                            <constraint firstAttribute="height" constant="45" id="dbW-kP-rO1"/>
+                                        </constraints>
+                                        <state key="normal" image="diamond.jpg"/>
+                                        <connections>
+                                            <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E2g-zZ-SH8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LC-0c-pae" userLabel="Pencil">
+                                        <rect key="frame" x="0.0" y="220" width="40" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Ehe-qT-sdg"/>
+                                            <constraint firstAttribute="height" constant="45" id="Uzm-Ef-G8v"/>
+                                        </constraints>
+                                        <state key="normal" image="pencil.png"/>
+                                        <connections>
+                                            <action selector="GetTag_ButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qAB-jO-n3P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="glr-dZ-YnP" userLabel="Draw">
+                                <rect key="frame" x="75" y="20" width="661" height="341"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="HgV-wd-0b7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="DEs-kw-uVa"/>
+                            <constraint firstItem="glr-dZ-YnP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="OOO-ym-2bn"/>
+                            <constraint firstItem="HgV-wd-0b7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="cgN-3c-cjf"/>
+                            <constraint firstAttribute="trailing" secondItem="glr-dZ-YnP" secondAttribute="trailing" id="dfA-LS-9Nd"/>
+                            <constraint firstItem="874-OZ-vki" firstAttribute="top" secondItem="glr-dZ-YnP" secondAttribute="bottom" constant="8" id="jE1-n1-kKf"/>
+                            <constraint firstItem="glr-dZ-YnP" firstAttribute="leading" secondItem="HgV-wd-0b7" secondAttribute="trailing" constant="25" id="orE-Nr-rpV"/>
+                            <constraint firstItem="874-OZ-vki" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rb8-Wj-qaP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="874-OZ-vki" secondAttribute="bottom" constant="5" id="uN7-ea-GID"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="RMk-0A-hPg" appends="YES" id="wqA-BI-nwg"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="DrawAreaView" destination="glr-dZ-YnP" id="zs7-HA-dWe"/>
+                        <outlet property="blueBtn" destination="DGb-R8-Eub" id="aFc-GQ-zIs"/>
+                        <outlet property="deleteBtn" destination="wiY-eF-ea5" id="l7a-u9-9Vs"/>
+                        <outlet property="eraseBtn" destination="Juc-Ls-zfE" id="mhN-e9-NhX"/>
+                        <outlet property="greenBtn" destination="Dga-8I-Tg3" id="PAp-Ez-OZF"/>
+                        <outlet property="purpleBtn" destination="Xlc-pv-7AX" id="kRM-sq-Ylq"/>
+                        <outlet property="redBtn" destination="VET-aX-aMG" id="hqz-oZ-Jrf"/>
+                        <outlet property="saveBtn" destination="gqC-gl-ZlV" id="QUk-vR-KHi"/>
+                        <outlet property="shapeView" destination="HgV-wd-0b7" id="MK1-yD-7D2"/>
+                        <outlet property="yellowBtn" destination="1rt-d3-mld" id="Xp2-C7-uJE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="RMk-0A-hPg">
+                    <connections>
+                        <action selector="drawPictures:" destination="BYZ-38-t0r" id="Ba0-9M-jiC"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="139.13043478260872"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blue.png" width="225" height="225"/>
+        <image name="diamond.jpg" width="626" height="626"/>
+        <image name="eraser.png" width="1600" height="1600"/>
+        <image name="green.png" width="215" height="121"/>
+        <image name="line.png" width="640" height="400"/>
+        <image name="oval.png" width="226" height="223"/>
+        <image name="pencil.png" width="266" height="190"/>
+        <image name="purple.png" width="480" height="480"/>
+        <image name="rect.png" width="289" height="174"/>
+        <image name="recycle.png" width="300" height="300"/>
+        <image name="red.png" width="480" height="480"/>
+        <image name="save.png" width="256" height="256"/>
+        <image name="yellow.png" width="300" height="300"/>
+    </resources>
+</document>
