@@ -16,7 +16,22 @@ class Diamond : Control{
     var ct_LinePath  : UIBezierPath  = UIBezierPath()
     var ct_layer     : CAShapeLayer  = CAShapeLayer()
     
+    var drawView:UIView = UIView()
+    
+    var view_Set_Get:UIView {
+        get {
+            return drawView
+        }
+        set {
+            drawView = newValue
+        }
+    }
+    
     func drawShape(){
+        let pointX = ct_StartPoint.x-(ct_EndPoint.x-ct_StartPoint.x)
+        let pointY = ct_EndPoint.y + (ct_EndPoint.y - ct_StartPoint.y)
+        if (pointY >= 0 && pointY <= drawView.bounds.height)
+           && (pointX >= 0 && pointX <= drawView.bounds.width){
         ct_LinePath.move(to:ct_StartPoint)
         ct_LinePath.addLine(to: CGPoint(x: ct_EndPoint.x, y: ct_EndPoint.y))
         ct_LinePath.addLine(to: CGPoint(x: ct_StartPoint.x, y: ct_EndPoint.y + (ct_EndPoint.y - ct_StartPoint.y)))
@@ -24,6 +39,6 @@ class Diamond : Control{
         ct_LinePath.addLine(to: ct_StartPoint)
         ct_layer.path = ct_LinePath.cgPath
         ct_layer.strokeColor = UIColor.cyan.cgColor
-        
+        }
     }
 }

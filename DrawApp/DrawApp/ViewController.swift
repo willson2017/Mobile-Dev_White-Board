@@ -26,8 +26,9 @@ class ViewController: UIViewController {
     var layer : CAShapeLayer?
     var startPoint : CGPoint = CGPointFromString("0")
     var endPoint   : CGPoint = CGPointFromString("0")
-    var currentPointArray    = [CGPoint]()
-    var layerArray           = [CAShapeLayer]()
+    var currentPointArray   = [CGPoint]()
+    var layerArray          = [CAShapeLayer]()
+    var containResult : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,75 +108,95 @@ class ViewController: UIViewController {
     
     @IBAction func drawPictures(_ sender: UIPanGestureRecognizer) {
         let linePath = UIBezierPath()
+        var boundaryChkResult : Bool = false
         
         if sender.state == .began{
             startPoint = sender.location(in: sender.view)
-            layer_Init()
-            self.view.layer.addSublayer(self.layer!)
-            layerArray.append(layer!)
-            
-        }else if sender.state == .changed{
-            endPoint = sender.location(in: sender.view)
-            switch btnTag.shapeTagResult{
-            case TagCollections.shapeTag.line.rawValue:
-                let myLine = Line()
-                myLine.ct_StartPoint = self.startPoint
-                myLine.ct_EndPoint   = self.endPoint
-                myLine.ct_LinePath   = linePath
-                myLine.ct_layer      = layer!
-                myLine.drawShape()
-            
-            case TagCollections.shapeTag.rect.rawValue:
-                let myRect = Rect()
-                myRect.ct_StartPoint = self.startPoint
-                myRect.ct_EndPoint   = sender.translation(in: sender.view)
-                myRect.ct_layer = layer!
-                myRect.drawShape()
-            
-            case TagCollections.shapeTag.oval.rawValue:
-                let myOval = Eclipse()
-                myOval.ct_StartPoint = self.startPoint
-                myOval.ct_EndPoint   = sender.translation(in: sender.view)
-                myOval.ct_layer = layer!
-                myOval.drawShape()
-
-            case TagCollections.shapeTag.diamond.rawValue:
-                let myDiamond = Diamond()
-                myDiamond.ct_StartPoint = self.startPoint
-                myDiamond.ct_EndPoint   = self.endPoint
-                myDiamond.ct_LinePath   = linePath
-                myDiamond.ct_layer      = layer!
-                myDiamond.drawShape()
-                
-            case TagCollections.shapeTag.pencil.rawValue:
-                let myPencil = Pencil()
-                myPencil.ct_StartPoint    = self.startPoint
-                myPencil.ct_EndPoint      = self.endPoint
-                currentPointArray.append(self.endPoint)
-                myPencil.setPencilPoints  = currentPointArray
-                myPencil.ct_LinePath      = linePath
-                myPencil.ct_layer         = layer!
-                myPencil.drawShape()
-                
-            case TagCollections.shapeTag.eraser.rawValue:
-                let myEraser = Pencil()
-                myEraser.ct_StartPoint    = self.startPoint
-                myEraser.ct_EndPoint      = self.endPoint
-                currentPointArray.append(self.endPoint)
-                myEraser.setPencilPoints  = currentPointArray
-                myEraser.ct_LinePath      = linePath
-                myEraser.ct_layer         = layer!
-                myEraser.ct_layer.fillColor = UIColor.white.cgColor
-                myEraser.ct_layer.opacity = 1.0
-                myEraser.ct_layer.strokeColor = UIColor.white.cgColor
-                myEraser.ct_layer.lineWidth   = 20.0
-
-                myEraser.drawShape()
-
-            default:
-                break;
+            containResult = DrawAreaView.frame.contains(startPoint)
+            if  containResult == true {
+                layer_Init()
+                self.view.layer.addSublayer(self.layer!)
+                layerArray.append(layer!)
             }
-            
+        }else if sender.state == .changed{
+            if containResult == true {
+                endPoint = sender.location(in: sender.view)
+                let endPoint_Draw_View = sender.location(in: DrawAreaView)
+                boundaryChkResult = CheckBoundary(location: endPoint_Draw_View, drawView: DrawAreaView)
+                switch btnTag.shapeTagResult{
+                case TagCollections.shapeTag.line.rawValue:
+                    let myLine = Line()
+                    myLine.ct_StartPoint = self.startPoint
+                    myLine.ct_EndPoint   = self.endPoint
+                    myLine.ct_LinePath   = linePath
+                    myLine.ct_layer      = layer!
+                    if boundaryChkResult  == true {
+                        myLine.drawShape()
+                    }
+
+                    
+                case TagCollections.shapeTag.rect.rawValue:
+                    let myRect = Rect()
+                    myRect.ct_StartPoint = self.startPoint
+                    myRect.ct_EndPoint   = sender.translation(in: sender.view)
+                    myRect.ct_layer = layer!
+                    if boundaryChkResult  == true {
+                        myRect.drawShape()
+                    }
+                    
+                case TagCollections.shapeTag.oval.rawValue:
+                    let myOval = Eclipse()
+                    myOval.ct_StartPoint = self.startPoint
+                    myOval.ct_EndPoint   = sender.translation(in: sender.view)
+                    myOval.ct_layer = layer!
+                    if boundaryChkResult  == true {
+                        myOval.drawShape()
+                    }
+
+                    
+                case TagCollections.shapeTag.diamond.rawValue:
+                    let myDiamond = Diamond()
+                    myDiamond.ct_StartPoint = self.startPoint
+                    myDiamond.ct_EndPoint   = self.endPoint
+                    myDiamond.ct_LinePath   = linePath
+                    myDiamond.ct_layer      = layer!
+                    myDiamond.drawView = DrawAreaView
+                    if boundaryChkResult  == true {
+                        myDiamond.drawShape()
+                    }
+                    
+                case TagCollections.shapeTag.pencil.rawValue:
+                    let myPencil = Pencil()
+                    myPencil.ct_StartPoint    = self.startPoint
+                    myPencil.ct_EndPoint      = self.endPoint
+                    currentPointArray.append(self.endPoint)
+                    myPencil.setPencilPoints  = currentPointArray
+                    myPencil.ct_LinePath      = linePath
+                    myPencil.ct_layer         = layer!
+                    if boundaryChkResult  == true {
+                        myPencil.drawShape()
+                    }
+                    
+                case TagCollections.shapeTag.eraser.rawValue:
+                    let myEraser = Pencil()
+                    myEraser.ct_StartPoint    = self.startPoint
+                    myEraser.ct_EndPoint      = self.endPoint
+                    currentPointArray.append(self.endPoint)
+                    myEraser.setPencilPoints  = currentPointArray
+                    myEraser.ct_LinePath      = linePath
+                    myEraser.ct_layer         = layer!
+                    myEraser.ct_layer.fillColor = DrawAreaView.backgroundColor?.cgColor
+                    myEraser.ct_layer.opacity = 1.0
+                    myEraser.ct_layer.strokeColor = DrawAreaView.backgroundColor?.cgColor
+                    myEraser.ct_layer.lineWidth   = 20.0
+                    if boundaryChkResult  == true {
+                        myEraser.drawShape()
+                    }
+                    
+                default:
+                    break;
+                }
+            }
         }else if sender.state == .ended{
                 currentPointArray.removeAll()
             
@@ -228,7 +249,16 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
+   
+    func CheckBoundary(location : CGPoint, drawView : UIView) -> Bool
+    {
+        var chkRet : Bool = false
+        if (location.y >= 0 && location.y <= drawView.bounds.height)
+            && (location.x >= 0 && location.x <= drawView.bounds.width) {
+            chkRet = true
+        }
+        return chkRet
+    }
 
     
    ////Code Area End   ////
